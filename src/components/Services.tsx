@@ -19,7 +19,8 @@ export default function Services() {
       ],
       price: "Starting from ₹5,000",
       timeline: "2-3 weeks",
-      includes: "Invitations, Save-the-dates, Menus, Place cards, Thank you notes",
+      includes:
+        "Invitations, Save-the-dates, Menus, Place cards, Thank you notes",
       popular: true,
     },
     {
@@ -55,7 +56,8 @@ export default function Services() {
       ],
       price: "Starting from ₹3,000",
       timeline: "1-2 weeks",
-      includes: "Banners, Centerpieces, Photo props, Backdrops, Table decorations",
+      includes:
+        "Banners, Centerpieces, Photo props, Backdrops, Table decorations",
       popular: true,
     },
     {
@@ -150,7 +152,7 @@ export default function Services() {
                   </span>
                 </div>
               )}
-              
+
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-2xl font-semibold text-deep-plum mb-4">
                 {service.title}
@@ -199,7 +201,13 @@ export default function Services() {
                     Custom pricing available
                   </span>
                 </div>
-                <button className="btn-primary">Get Quote</button>
+                <a
+                  href="#contact"
+                  className="btn-primary inline-block text-center"
+                  aria-label={`Get quote for ${service.title}`}
+                >
+                  Get Quote
+                </a>
               </div>
             </motion.div>
           ))}
@@ -261,12 +269,20 @@ export default function Services() {
             Contact us today for a free consultation and quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-deep-plum text-ivory-white px-8 py-3 rounded-lg font-medium hover:bg-charcoal-black transition-colors">
+            <a
+              href="#contact"
+              className="bg-deep-plum text-ivory-white px-8 py-3 rounded-lg font-medium hover:bg-charcoal-black transition-colors inline-block"
+              aria-label="Get free quote for your project"
+            >
               Get Free Quote
-            </button>
-            <button className="bg-ivory-white/20 text-deep-plum px-8 py-3 rounded-lg font-medium hover:bg-ivory-white/30 transition-colors">
+            </a>
+            <a
+              href="#portfolio"
+              className="bg-ivory-white/20 text-deep-plum px-8 py-3 rounded-lg font-medium hover:bg-ivory-white/30 transition-colors inline-block"
+              aria-label="View our portfolio of work"
+            >
               View Portfolio
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

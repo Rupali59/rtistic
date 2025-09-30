@@ -77,7 +77,8 @@ export default function Testimonials() {
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
           <p className="text-xl text-charcoal-black/80 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say about their experience with RTistic.
+            Don't just take our word for it. Here's what our satisfied clients
+            have to say about their experience with RTistic.
           </p>
         </motion.div>
 
@@ -211,12 +212,20 @@ export default function Testimonials() {
             Let us create something beautiful for your special occasion.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary text-lg px-8 py-4">
+            <a
+              href="#contact"
+              className="btn-primary text-lg px-8 py-4 inline-block"
+              aria-label="Get free quote for your project"
+            >
               Get Free Quote
-            </button>
-            <button className="bg-ivory-white text-deep-plum border-2 border-deep-plum px-8 py-4 rounded-lg font-medium hover:bg-deep-plum hover:text-ivory-white transition-colors">
+            </a>
+            <a
+              href="#portfolio"
+              className="bg-ivory-white text-deep-plum border-2 border-deep-plum px-8 py-4 rounded-lg font-medium hover:bg-deep-plum hover:text-ivory-white transition-colors inline-block"
+              aria-label="View our portfolio of work"
+            >
               View Portfolio
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>
