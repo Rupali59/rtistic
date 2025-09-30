@@ -31,11 +31,20 @@ export default function Header() {
           ? "bg-deep-plum/95 backdrop-blur-md shadow-lg"
           : "bg-deep-plum"
       }`}
+      role="banner"
     >
-      <nav className="container-max">
+      <nav
+        className="container-max"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link
+            href="/"
+            className="flex items-center space-x-3"
+            aria-label="RTistic - Go to homepage"
+          >
             <Image
               src="/images/logo.jpeg"
               alt="RTistic Logo"
@@ -54,19 +63,29 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-ivory-white hover:text-gold-start transition-colors duration-300 font-medium"
+                className="text-ivory-white hover:text-gold-start transition-colors duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum rounded px-2 py-1"
+                aria-label={`Navigate to ${item.label} section`}
               >
                 {item.label}
               </Link>
             ))}
-            <button className="btn-primary">Get Quote</button>
+            <button
+              className="btn-primary focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum"
+              aria-label="Get a quote for your project"
+            >
+              Get Quote
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-ivory-white"
+            className="md:hidden text-ivory-white focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum rounded p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle mobile menu"
+            aria-label={
+              isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"
+            }
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <svg
               className="w-6 h-6"
@@ -95,19 +114,30 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-deep-plum border-t border-gold-start/20">
+          <div
+            id="mobile-menu"
+            className="md:hidden bg-deep-plum border-t border-gold-start/20"
+            role="navigation"
+            aria-label="Mobile navigation"
+          >
             <div className="px-4 py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block text-ivory-white hover:text-gold-start transition-colors duration-300 font-medium py-2"
+                  className="block text-ivory-white hover:text-gold-start transition-colors duration-300 font-medium py-2 focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum rounded px-2"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label={`Navigate to ${item.label} section`}
                 >
                   {item.label}
                 </Link>
               ))}
-              <button className="btn-primary w-full mt-4">Get Quote</button>
+              <button
+                className="btn-primary w-full mt-4 focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum"
+                aria-label="Get a quote for your project"
+              >
+                Get Quote
+              </button>
             </div>
           </div>
         )}

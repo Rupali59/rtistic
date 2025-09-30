@@ -2,25 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-// Optimized animation variants to reduce bundle size
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
-const fadeInLeft = {
-  initial: { opacity: 0, x: -30 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6 }
-};
-
-const fadeInRight = {
-  initial: { opacity: 0, x: 30 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6 }
-};
+import {
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  createDelayedAnimation,
+} from "@/lib/animations";
 
 export default function Hero() {
   return (
@@ -57,14 +44,10 @@ export default function Hero() {
       <div className="container-max section-padding">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-20">
           {/* Content */}
-          <motion.div
-            {...fadeInLeft}
-            className="text-center lg:text-left"
-          >
+          <motion.div {...fadeInLeft} className="text-center lg:text-left">
             <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold-end mb-6"
-              {...fadeInUp}
-              transition={{ ...fadeInUp.transition, delay: 0.2 }}
+              {...createDelayedAnimation(fadeInUp, 0.2)}
             >
               Crafting Dreams
               <span className="block gradient-text">Into Reality</span>
@@ -72,8 +55,7 @@ export default function Hero() {
 
             <motion.p
               className="text-xl text-ivory-white/90 mb-8 leading-relaxed"
-              {...fadeInUp}
-              transition={{ ...fadeInUp.transition, delay: 0.4 }}
+              {...createDelayedAnimation(fadeInUp, 0.4)}
             >
               Welcome to RTistic, where every piece of paper tells a story. We
               specialize in creating beautiful, personalized paper crafts that
@@ -82,13 +64,18 @@ export default function Hero() {
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              {...fadeInUp}
-              transition={{ ...fadeInUp.transition, delay: 0.6 }}
+              {...createDelayedAnimation(fadeInUp, 0.6)}
             >
-              <button className="btn-primary text-lg px-8 py-4">
+              <button
+                className="btn-primary text-lg px-8 py-4 focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum"
+                aria-label="Explore our portfolio of paper craft creations"
+              >
                 Explore Our Work
               </button>
-              <button className="btn-secondary text-lg px-8 py-4">
+              <button
+                className="btn-secondary text-lg px-8 py-4 focus:outline-none focus:ring-2 focus:ring-dusty-rose focus:ring-offset-2 focus:ring-offset-deep-plum"
+                aria-label="Start your custom paper craft project"
+              >
                 Start Your Project
               </button>
             </motion.div>
@@ -96,19 +83,47 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-gold-start/20"
-              {...fadeInUp}
-              transition={{ ...fadeInUp.transition, delay: 0.8 }}
+              {...createDelayedAnimation(fadeInUp, 0.8)}
+              role="region"
+              aria-label="Company statistics"
             >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-start">500+</div>
+              <div
+                className="text-center"
+                role="group"
+                aria-label="Happy clients count"
+              >
+                <div
+                  className="text-3xl font-bold text-gold-start"
+                  aria-label="500 plus"
+                >
+                  500+
+                </div>
                 <div className="text-ivory-white/80">Happy Clients</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-start">1000+</div>
+              <div
+                className="text-center"
+                role="group"
+                aria-label="Projects completed count"
+              >
+                <div
+                  className="text-3xl font-bold text-gold-start"
+                  aria-label="1000 plus"
+                >
+                  1000+
+                </div>
                 <div className="text-ivory-white/80">Projects Done</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-start">5+</div>
+              <div
+                className="text-center"
+                role="group"
+                aria-label="Years of experience"
+              >
+                <div
+                  className="text-3xl font-bold text-gold-start"
+                  aria-label="5 plus"
+                >
+                  5+
+                </div>
                 <div className="text-ivory-white/80">Years Experience</div>
               </div>
             </motion.div>
@@ -116,8 +131,7 @@ export default function Hero() {
 
           {/* Hero Image */}
           <motion.div
-            {...fadeInRight}
-            transition={{ ...fadeInRight.transition, delay: 0.3 }}
+            {...createDelayedAnimation(fadeInRight, 0.3)}
             className="relative"
           >
             <div className="relative z-10">
@@ -137,7 +151,10 @@ export default function Hero() {
 
             {/* Floating Elements - Simplified animations */}
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-dusty-rose/20 rounded-full blur-sm animate-pulse"></div>
-            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-muted-sage/20 rounded-full blur-sm animate-pulse" style={{ animationDelay: "1s" }}></div>
+            <div
+              className="absolute -bottom-6 -left-6 w-20 h-20 bg-muted-sage/20 rounded-full blur-sm animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
           </motion.div>
         </div>
       </div>
@@ -148,6 +165,20 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
+        role="button"
+        tabIndex={0}
+        aria-label="Scroll down to see more content"
+        onClick={() => {
+          const aboutSection = document.getElementById("about");
+          aboutSection?.scrollIntoView({ behavior: "smooth" });
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const aboutSection = document.getElementById("about");
+            aboutSection?.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
       >
         <div className="w-6 h-10 border-2 border-gold-start rounded-full flex justify-center animate-bounce">
           <div className="w-1 h-3 bg-gold-start rounded-full mt-2"></div>

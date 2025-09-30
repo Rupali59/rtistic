@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import ServiceWorkerProvider from "@/components/ServiceWorkerProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -85,7 +87,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#2C0F24" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <ErrorBoundary>
+          <ServiceWorkerProvider>{children}</ServiceWorkerProvider>
+        </ErrorBoundary>
+      </body>
     </html>
   );
 }
