@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { Variants, Transition } from 'framer-motion';
 
 /**
  * Shared animation variants for consistent animations across the application
@@ -8,110 +8,72 @@ import { Variants } from 'framer-motion';
 // Basic fade animations
 export const fadeInUp: Variants = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, y: 0 }
 };
 
 export const fadeInDown: Variants = {
   initial: { opacity: 0, y: -30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, y: 0 }
 };
 
 export const fadeInLeft: Variants = {
   initial: { opacity: 0, x: -30 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, x: 0 }
 };
 
 export const fadeInRight: Variants = {
   initial: { opacity: 0, x: 30 },
-  animate: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, x: 0 }
 };
 
 export const fadeIn: Variants = {
   initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1 }
 };
 
 // Scale animations
 export const scaleIn: Variants = {
   initial: { opacity: 0, scale: 0.8 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, scale: 1 }
 };
 
 export const scaleInUp: Variants = {
   initial: { opacity: 0, scale: 0.8, y: 20 },
-  animate: { opacity: 1, scale: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" }
+  animate: { opacity: 1, scale: 1, y: 0 }
 };
 
 // Stagger animations for lists
 export const staggerContainer: Variants = {
   initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+  animate: {}
 };
 
 export const staggerItem: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: { 
     opacity: 1, 
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
+    y: 0
   }
-};
-
-// Viewport-based animations
-export const fadeInOnView: Variants = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
-
-export const slideInOnView: Variants = {
-  initial: { opacity: 0, x: -50 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
-
-export const scaleInOnView: Variants = {
-  initial: { opacity: 0, scale: 0.8 },
-  whileInView: { opacity: 1, scale: 1 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6, ease: "easeOut" }
 };
 
 // Hover animations
 export const hoverScale: Variants = {
   hover: { 
-    scale: 1.05,
-    transition: { duration: 0.2, ease: "easeInOut" }
+    scale: 1.05
   },
   tap: { scale: 0.95 }
 };
 
 export const hoverLift: Variants = {
   hover: { 
-    y: -5,
-    transition: { duration: 0.2, ease: "easeInOut" }
+    y: -5
   }
 };
 
 // Button animations
 export const buttonHover: Variants = {
   hover: { 
-    scale: 1.02,
-    transition: { duration: 0.2 }
+    scale: 1.02
   },
   tap: { scale: 0.98 }
 };
@@ -120,24 +82,22 @@ export const buttonHover: Variants = {
 export const pageTransition: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 },
-  transition: { duration: 0.3, ease: "easeInOut" }
+  exit: { opacity: 0, y: -20 }
 };
 
 // Utility function to create delayed animations
-export const createDelayedAnimation = (baseAnimation: Variants, delay: number): Variants => ({
+export const createDelayedAnimation = (baseAnimation: Variants, delay: number) => ({
   ...baseAnimation,
-  transition: {
-    ...baseAnimation.transition,
-    delay
-  }
+  transition: { duration: 0.6, delay }
 });
 
-// Utility function to create staggered animations
-export const createStaggeredAnimation = (baseAnimation: Variants, staggerDelay: number = 0.1): Variants => ({
-  ...baseAnimation,
-  transition: {
-    ...baseAnimation.transition,
-    staggerChildren: staggerDelay
-  }
-});
+// Common transition configurations
+export const defaultTransition: Transition = {
+  duration: 0.6,
+  ease: "easeOut"
+};
+
+export const fastTransition: Transition = {
+  duration: 0.3,
+  ease: "easeInOut"
+};
