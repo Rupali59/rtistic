@@ -1,10 +1,27 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Portfolio from "@/components/Portfolio";
-import Services from "@/components/Services";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+// Lazy load components that are below the fold
+const About = dynamic(() => import("@/components/About"), {
+  loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
+});
+
+const Portfolio = dynamic(() => import("@/components/Portfolio"), {
+  loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
+});
+
+const Services = dynamic(() => import("@/components/Services"), {
+  loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
+});
+
+const Contact = dynamic(() => import("@/components/Contact"), {
+  loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <div className="h-32 bg-deep-plum animate-pulse" />,
+});
 
 export default function Home() {
   return (
