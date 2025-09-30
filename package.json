@@ -8,6 +8,7 @@
     "build:check": "npm run lint && npm run test && npm run build",
     "build:analyze": "ANALYZE=true npm run build",
     "start": "NODE_ENV=production next start",
+    "stop": "./stop-next.sh",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "test": "jest",
