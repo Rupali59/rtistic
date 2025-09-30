@@ -59,24 +59,45 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               At RTistic, we believe that every moment deserves to be celebrated
-              with something truly special. Our journey began with a simple
-              passion for paper crafts and has evolved into a full-service
-              gifting agency that creates magical experiences for our clients.
+              with something truly special. Our journey began in 2018 when our founder, 
+              Rupali, started crafting personalized paper gifts for friends and family 
+              from her small Mumbai apartment.
             </motion.p>
 
             <motion.p
-              className="text-lg text-charcoal-black/80 mb-8 leading-relaxed"
+              className="text-lg text-charcoal-black/80 mb-6 leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              From intimate wedding invitations to grand corporate events,
-              we&apos;ve had the privilege of being part of countless special
-              moments. Our team of skilled artisans brings years of experience
-              and an unwavering commitment to excellence in every project we
-              undertake.
+              What started as a passion project quickly grew into a full-service 
+              gifting agency. Today, we've created over 1000+ beautiful paper crafts 
+              for clients across India, from intimate wedding invitations to grand 
+              corporate events. Our team of skilled artisans brings years of experience 
+              and an unwavering commitment to excellence.
             </motion.p>
+
+            <motion.div
+              className="bg-gradient-gold rounded-xl p-6 mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <div className="flex items-start">
+                <div className="text-3xl mr-4">💝</div>
+                <div>
+                  <h4 className="text-lg font-semibold text-deep-plum mb-2">
+                    Our Mission
+                  </h4>
+                  <p className="text-deep-plum/80 text-sm">
+                    To transform ordinary moments into extraordinary memories through 
+                    handcrafted paper creations that tell your unique story.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
             {/* Features Grid */}
             <motion.div
@@ -119,7 +140,7 @@ export default function About() {
             <div className="relative z-10 mb-6">
               <Image
                 src="/images/art2.jpeg"
-                alt="RTistic paper craft workshop"
+                alt="RTistic handmade paper craft workshop in Mumbai - premium wedding invitation design process"
                 width={500}
                 height={400}
                 className="rounded-2xl shadow-xl"
@@ -136,7 +157,7 @@ export default function About() {
               >
                 <Image
                   src="/images/art3.jpeg"
-                  alt="Beautiful paper craft detail"
+                  alt="Handmade paper craft detail with gold foil embellishments - RTistic premium wedding stationery"
                   width={250}
                   height={200}
                   className="rounded-xl shadow-lg"
@@ -151,7 +172,7 @@ export default function About() {
               >
                 <Image
                   src="/images/art4.jpeg"
-                  alt="Handcrafted paper creation"
+                  alt="Custom handcrafted paper creation with traditional Indian motifs - RTistic personalized gifts Mumbai"
                   width={250}
                   height={200}
                   className="rounded-xl shadow-lg"

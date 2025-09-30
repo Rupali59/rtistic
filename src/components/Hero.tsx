@@ -57,27 +57,50 @@ export default function Hero() {
               className="text-xl text-ivory-white/90 mb-8 leading-relaxed"
               {...createDelayedAnimation(fadeInUp, 0.4)}
             >
-              Welcome to RTistic, where every piece of paper tells a story. We
-              specialize in creating beautiful, personalized paper crafts that
-              make your special moments unforgettable.
+              Welcome to RTistic, Mumbai's premier paper craft gifting agency. 
+              Since 2018, we've created over 1000+ beautiful, personalized paper 
+              crafts for weddings, corporate events, and special celebrations across India.
             </motion.p>
+
+            {/* Trust Badges */}
+            <motion.div
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
+              {...createDelayedAnimation(fadeInUp, 0.5)}
+            >
+              <div className="flex items-center bg-ivory-white/10 rounded-full px-4 py-2">
+                <span className="text-gold-start mr-2">⭐</span>
+                <span className="text-sm text-ivory-white">4.9/5 Rating</span>
+              </div>
+              <div className="flex items-center bg-ivory-white/10 rounded-full px-4 py-2">
+                <span className="text-gold-start mr-2">🏆</span>
+                <span className="text-sm text-ivory-white">Award Winning</span>
+              </div>
+              <div className="flex items-center bg-ivory-white/10 rounded-full px-4 py-2">
+                <span className="text-gold-start mr-2">🚚</span>
+                <span className="text-sm text-ivory-white">Pan India Delivery</span>
+              </div>
+            </motion.div>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               {...createDelayedAnimation(fadeInUp, 0.6)}
             >
-              <button
+              <a
+                href="#portfolio"
                 className="btn-primary text-lg px-8 py-4 focus:outline-none focus:ring-2 focus:ring-gold-start focus:ring-offset-2 focus:ring-offset-deep-plum"
                 aria-label="Explore our portfolio of paper craft creations"
               >
                 Explore Our Work
-              </button>
-              <button
+              </a>
+              <a
+                href="https://wa.me/919876543210?text=Hi! I'm interested in your paper craft services. Can you help me with a quote?"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary text-lg px-8 py-4 focus:outline-none focus:ring-2 focus:ring-dusty-rose focus:ring-offset-2 focus:ring-offset-deep-plum"
-                aria-label="Start your custom paper craft project"
+                aria-label="Start your custom paper craft project via WhatsApp"
               >
-                Start Your Project
-              </button>
+                Get WhatsApp Quote
+              </a>
             </motion.div>
 
             {/* Stats */}
@@ -137,7 +160,7 @@ export default function Hero() {
             <div className="relative z-10">
               <Image
                 src="/images/art1.jpeg"
-                alt="Beautiful paper craft creation by RTistic"
+                alt="Premium handmade wedding invitation with gold foil detailing by RTistic Mumbai - custom paper craft design"
                 width={600}
                 height={700}
                 className="rounded-2xl shadow-2xl"

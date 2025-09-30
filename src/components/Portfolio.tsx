@@ -21,8 +21,11 @@ export default function Portfolio() {
       image: "/images/art1.jpeg",
       title: "Elegant Wedding Invitations",
       category: "weddings",
-      description:
-        "Custom-designed wedding invitation suite with gold foil detailing",
+      description: "Custom-designed wedding invitation suite with gold foil detailing",
+      story: "Created for Priya & Rajesh's Mumbai wedding. The couple wanted something elegant yet traditional, so we incorporated gold foil with intricate mandala patterns. 200 invitations delivered in 3 weeks.",
+      client: "Priya & Rajesh",
+      price: "₹8,500",
+      cta: "Order Similar",
     },
     {
       id: 2,
@@ -30,22 +33,32 @@ export default function Portfolio() {
       title: "Corporate Gift Boxes",
       category: "corporate",
       description: "Premium corporate gift packaging for client appreciation",
+      story: "Designed for Tata Group's Diwali client gifts. Each box contained premium items wrapped in custom-designed paper with the company logo. 500 boxes delivered across 5 cities.",
+      client: "Tata Group",
+      price: "₹12,000",
+      cta: "Get Corporate Quote",
     },
     {
       id: 3,
       image: "/images/art3.jpeg",
       title: "Birthday Celebration Kit",
       category: "personal",
-      description:
-        "Personalized birthday celebration paper crafts and decorations",
+      description: "Personalized birthday celebration paper crafts and decorations",
+      story: "Made for little Aarav's 5th birthday party. Custom superhero theme with personalized banners, party hats, and favor bags. The birthday boy was thrilled!",
+      client: "Aarav's Family",
+      price: "₹3,200",
+      cta: "Create Birthday Magic",
     },
     {
       id: 4,
       image: "/images/art4.jpeg",
       title: "Festival Greeting Cards",
       category: "personal",
-      description:
-        "Handcrafted festival greeting cards with traditional motifs",
+      description: "Handcrafted festival greeting cards with traditional motifs",
+      story: "Custom Diwali cards for a family business. Each card featured traditional rangoli patterns with metallic accents. Sent to 150 clients and business partners.",
+      client: "Patel Enterprises",
+      price: "₹4,500",
+      cta: "Design Festival Cards",
     },
     {
       id: 5,
@@ -53,6 +66,10 @@ export default function Portfolio() {
       title: "Anniversary Memory Book",
       category: "personal",
       description: "Custom anniversary memory book with photo pockets",
+      story: "Created for Mr. & Mrs. Sharma's 25th wedding anniversary. The book included photo pockets, handwritten notes, and custom illustrations of their journey together.",
+      client: "Sharma Family",
+      price: "₹6,800",
+      cta: "Create Memory Book",
     },
     {
       id: 6,
@@ -60,6 +77,10 @@ export default function Portfolio() {
       title: "Corporate Event Materials",
       category: "corporate",
       description: "Complete event branding and paper materials",
+      story: "Full branding package for Infosys annual conference. Included welcome kits, name tags, program booklets, and branded stationery for 300 attendees.",
+      client: "Infosys",
+      price: "₹15,000",
+      cta: "Plan Corporate Event",
     },
     {
       id: 7,
@@ -67,6 +88,10 @@ export default function Portfolio() {
       title: "Bridal Shower Favors",
       category: "weddings",
       description: "Beautiful bridal shower favor boxes and tags",
+      story: "Designed for Ananya's bridal shower. Each favor box contained handmade soaps wrapped in custom-designed paper with personalized thank you tags.",
+      client: "Ananya's Bridal Shower",
+      price: "₹2,800",
+      cta: "Order Bridal Favors",
     },
     {
       id: 8,
@@ -74,6 +99,10 @@ export default function Portfolio() {
       title: "Baby Shower Decorations",
       category: "events",
       description: "Adorable baby shower paper decorations and banners",
+      story: "Created a complete nursery theme for Riya's baby shower. Included custom banners, centerpieces, and photo booth props. The mom-to-be was overjoyed!",
+      client: "Riya's Baby Shower",
+      price: "₹4,200",
+      cta: "Design Baby Shower",
     },
     {
       id: 9,
@@ -81,6 +110,10 @@ export default function Portfolio() {
       title: "Holiday Gift Wrapping",
       category: "personal",
       description: "Festive holiday gift wrapping and tags collection",
+      story: "Custom Christmas wrapping service for a family of 20. Each gift was wrapped in unique designs with personalized tags. Made the holiday season extra special!",
+      client: "Kumar Family",
+      price: "₹3,500",
+      cta: "Wrap Holiday Gifts",
     },
   ];
 
@@ -151,18 +184,22 @@ export default function Portfolio() {
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={`${item.title} by RTistic - ${item.description} for ${item.client} in Mumbai`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-plum/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-deep-plum/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <div className="text-ivory-white">
                       <h3 className="text-lg font-semibold mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-sm opacity-90">{item.description}</p>
+                      <p className="text-sm opacity-90 mb-2">{item.description}</p>
+                      <div className="text-xs opacity-80">
+                        <div className="mb-1">Client: {item.client}</div>
+                        <div className="font-semibold text-gold-start">Price: {item.price}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -176,9 +213,16 @@ export default function Portfolio() {
                       {item.category}
                     </span>
                   </div>
-                  <p className="text-charcoal-black/70 text-sm">
+                  <p className="text-charcoal-black/70 text-sm mb-3">
                     {item.description}
                   </p>
+                  <div className="text-xs text-charcoal-black/60 mb-4">
+                    <div className="mb-1">Client: {item.client}</div>
+                    <div className="font-semibold text-gold-start">Price: {item.price}</div>
+                  </div>
+                  <button className="w-full bg-gold-start text-ivory-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gold-end transition-colors">
+                    {item.cta}
+                  </button>
                 </div>
               </div>
             </motion.div>

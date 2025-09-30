@@ -15,6 +15,14 @@ const Services = dynamic(() => import("@/components/Services"), {
   loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
 });
 
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="h-96 bg-ivory-white animate-pulse" />,
+});
+
+const FAQ = dynamic(() => import("@/components/FAQ"), {
+  loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
+});
+
 const Contact = dynamic(() => import("@/components/Contact"), {
   loading: () => <div className="h-96 bg-deep-plum animate-pulse" />,
 });
@@ -31,6 +39,8 @@ export default function Home() {
       <About />
       <Portfolio />
       <Services />
+      <Testimonials />
+      <FAQ />
       <Contact />
       <Footer />
     </main>

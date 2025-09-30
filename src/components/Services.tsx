@@ -8,53 +8,73 @@ export default function Services() {
       icon: "💒",
       title: "Wedding Paper Crafts",
       description:
-        "Complete wedding stationery suite including invitations, save-the-dates, menus, and place cards.",
+        "Complete wedding stationery suite including invitations, save-the-dates, menus, place cards, and thank you notes.",
       features: [
-        "Custom Design",
-        "Premium Materials",
-        "Fast Turnaround",
+        "Custom Design & Branding",
+        "Premium Materials (Gold Foil, Handmade Paper)",
+        "2-3 Week Turnaround",
         "Nationwide Delivery",
+        "Unlimited Revisions",
+        "Sample Options Available",
       ],
       price: "Starting from ₹5,000",
+      timeline: "2-3 weeks",
+      includes: "Invitations, Save-the-dates, Menus, Place cards, Thank you notes",
+      popular: true,
     },
     {
       icon: "🏢",
       title: "Corporate Gifts",
       description:
-        "Professional corporate gift packaging and branded materials for business occasions.",
+        "Professional corporate gift packaging, branded materials, and event stationery for business occasions.",
       features: [
-        "Brand Consistency",
-        "Bulk Orders",
-        "Custom Branding",
-        "Premium Quality",
+        "Brand Consistency & Logo Integration",
+        "Bulk Orders (100-10,000+ pieces)",
+        "Custom Branding & Colors",
+        "Premium Quality Materials",
+        "Volume Discounts Available",
+        "Dedicated Account Manager",
       ],
       price: "Starting from ₹2,000",
+      timeline: "1-2 weeks",
+      includes: "Gift boxes, Branded stationery, Event materials, Welcome kits",
+      popular: false,
     },
     {
       icon: "🎉",
       title: "Event Decorations",
       description:
-        "Beautiful paper decorations for birthdays, anniversaries, and special celebrations.",
+        "Beautiful paper decorations for birthdays, anniversaries, baby showers, and special celebrations.",
       features: [
-        "Custom Themes",
-        "Color Matching",
-        "Installation Support",
-        "Unique Designs",
+        "Custom Themes & Color Matching",
+        "Installation Support (Mumbai)",
+        "Unique Designs & Props",
+        "Photo Booth Backdrops",
+        "Centerpieces & Banners",
+        "Cleanup Service Available",
       ],
       price: "Starting from ₹3,000",
+      timeline: "1-2 weeks",
+      includes: "Banners, Centerpieces, Photo props, Backdrops, Table decorations",
+      popular: true,
     },
     {
       icon: "🎁",
       title: "Personal Gifts",
       description:
-        "Thoughtful handmade paper gifts for loved ones on special occasions.",
+        "Thoughtful handmade paper gifts, memory books, greeting cards, and personalized items for loved ones.",
       features: [
-        "Personalized",
-        "Handcrafted",
-        "Gift Wrapping",
-        "Message Cards",
+        "Fully Personalized & Custom",
+        "Handcrafted with Love",
+        "Gift Wrapping Included",
+        "Personal Message Cards",
+        "Memory Books & Scrapbooks",
+        "Same-day Delivery (Mumbai)",
       ],
       price: "Starting from ₹1,000",
+      timeline: "1 week",
+      includes: "Greeting cards, Memory books, Gift boxes, Personalized items",
+      popular: false,
     },
   ];
 
@@ -119,8 +139,18 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg p-8 card-hover"
+              className={`bg-white rounded-2xl shadow-lg p-8 card-hover relative ${
+                service.popular ? "ring-2 ring-gold-start" : ""
+              }`}
             >
+              {service.popular && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-gold-start text-ivory-white px-4 py-1 rounded-full text-sm font-medium">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+              
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-2xl font-semibold text-deep-plum mb-4">
                 {service.title}
@@ -151,10 +181,24 @@ export default function Services() {
                 ))}
               </div>
 
+              <div className="bg-ivory-white/50 rounded-lg p-4 mb-6">
+                <div className="text-sm text-charcoal-black/70 mb-2">
+                  <strong>Timeline:</strong> {service.timeline}
+                </div>
+                <div className="text-sm text-charcoal-black/70">
+                  <strong>Includes:</strong> {service.includes}
+                </div>
+              </div>
+
               <div className="flex items-center justify-between">
-                <span className="text-lg font-semibold text-gold-start">
-                  {service.price}
-                </span>
+                <div>
+                  <span className="text-lg font-semibold text-gold-start block">
+                    {service.price}
+                  </span>
+                  <span className="text-xs text-charcoal-black/60">
+                    Custom pricing available
+                  </span>
+                </div>
                 <button className="btn-primary">Get Quote</button>
               </div>
             </motion.div>
