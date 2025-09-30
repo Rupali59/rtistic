@@ -1,0 +1,176 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function Hero() {
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen bg-deep-plum overflow-hidden"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-pattern opacity-10"></div>
+
+      {/* Floral Decoration Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 text-dusty-rose opacity-30 animate-float">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 10 C70 30, 90 50, 50 90 C30 70, 10 50, 50 10 Z" />
+        </svg>
+      </div>
+      <div
+        className="absolute top-40 right-20 w-16 h-16 text-muted-sage opacity-30 animate-float"
+        style={{ animationDelay: "1s" }}
+      >
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="40" />
+        </svg>
+      </div>
+      <div
+        className="absolute bottom-32 left-1/4 w-12 h-12 text-gold-start opacity-30 animate-float"
+        style={{ animationDelay: "2s" }}
+      >
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <path d="M50 20 L80 80 L20 80 Z" />
+        </svg>
+      </div>
+
+      <div className="container-max section-padding">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen pt-20">
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold-end mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Crafting Dreams
+              <span className="block gradient-text">Into Reality</span>
+            </motion.h1>
+
+            <motion.p
+              className="text-xl text-ivory-white/90 mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Welcome to RTistic, where every piece of paper tells a story. We
+              specialize in creating beautiful, personalized paper crafts that
+              make your special moments unforgettable.
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <button className="btn-primary text-lg px-8 py-4">
+                Explore Our Work
+              </button>
+              <button className="btn-secondary text-lg px-8 py-4">
+                Start Your Project
+              </button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-gold-start/20"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold-start">500+</div>
+                <div className="text-ivory-white/80">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold-start">1000+</div>
+                <div className="text-ivory-white/80">Projects Done</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold-start">5+</div>
+                <div className="text-ivory-white/80">Years Experience</div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="relative z-10">
+              <Image
+                src="/images/art1.jpeg"
+                alt="Beautiful paper craft creation by RTistic"
+                width={600}
+                height={700}
+                className="rounded-2xl shadow-2xl"
+                priority
+              />
+            </div>
+
+            {/* Decorative Frame */}
+            <div className="absolute -inset-4 bg-gradient-gold rounded-3xl opacity-20 blur-xl"></div>
+
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute -top-6 -right-6 w-24 h-24 bg-dusty-rose/20 rounded-full blur-sm"
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              className="absolute -bottom-6 -left-6 w-20 h-20 bg-muted-sage/20 rounded-full blur-sm"
+              animate={{
+                y: [0, 10, 0],
+                rotate: [0, -5, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-gold-start rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-gold-start rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
